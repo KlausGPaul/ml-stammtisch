@@ -1,0 +1,217 @@
+{% extends base %}
+<title>{% block title %}Scarecrow Ray{% endblock %}</title>
+
+{% block preamble %}
+<style>
+  @font-face {
+    font-family: 'Asap Condensed';
+    src: local('☺'), url('/labelit/static/AsapCondensed-Regular.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  } 
+  body {
+    /* font-family: "Ostrich Sans"  !important; */
+    font-family: "Asap Condensed"  !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: #fff;
+    background: #626262;
+  }
+  body.fade {
+    opacity: 0.5;
+  }
+  * {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .bk-widget-form-input {
+    background: #565656 !important;
+    color: white !important;
+    border-top-color: #565656 !important;
+    border-right-color: #565656 !important;
+    border-left-color: #565656 !important;
+    border-bottom-color: #565656 !important;
+  }
+  .bk-data-table {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #565656 !important;
+    color: #f3f3f3 !important;
+    border-top-color: #565656 !important;
+    border-right-color: #565656 !important;
+    border-left-color: #565656 !important;
+    border-bottom-color: #565656 !important;
+  }
+  .slick-header-column {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    color: #FFFFFF !important;
+    border-top-color: #626262 !important;
+    border-right-color: #626262 !important;
+    border-left-color: #626262 !important;
+    border-bottom-color: #626262 !important;
+  }
+  .slick-viewport {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    color: #565656 !important;
+    border-top-color: #565656 !important;
+    border-right-color: #565656 !important;
+    border-left-color: #565656 !important;
+    border-bottom-color: #565656 !important;
+  }
+  div[class^="slick-row"],div[class*=" even"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #565656 !important;
+    color: #FFFFFF !important;
+    border-top-color: #565656 !important;
+    border-right-color: #565656 !important;
+    border-left-color: #565656 !important;
+    border-bottom-color: #565656 !important;
+  }
+  div[class^="slick-row"],div[class*=" even"],div[class*=" selected"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #525252 !important;
+    color: #FFFFFF !important;
+    border-top-color: #000000 !important;
+    border-right-color: #000000 !important;
+    border-left-color: #000000!important;
+    border-bottom-color: #000000 !important;
+  }
+  div[class^="slick-row"],div[class*=" odd"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    color: #FFFFFF !important;
+    border-top-color: #626262 !important;
+    border-right-color: #626262 !important;
+    border-left-color: #626262 !important;
+    border-bottom-color: #626262 !important;
+  }
+  div[class^="slick-row"],div[class*=" odd"],div[class*=" selected"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #5E5E5E !important;
+    color: #FFFFFF !important;
+    border-top-color: #000000 !important;
+    border-right-color: #000000 !important;
+    border-left-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+  }
+  div[class^="slick-cell"],div[class*="cell-selected"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    color: #FFFFFF !important;
+    border-top-color: #000000 !important;
+    border-right-color: #000000 !important;
+    border-left-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+  }
+  div[class^="ui-widget-content"],div[class*="active"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border-top-color: #00FF00 !important;
+    border-right-color: #00FF00 !important;
+    border-left-color: #00FF00 !important;
+    border-bottom-color: #00FF00 !important;
+  }
+  div[class^="bk-widget"],div[class*="slickgrid"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    color: #FFFFFF !important;
+    border-top-color: #000000 !important;
+    border-right-color: #000000 !important;
+    border-left-color: #000000 !important;
+    border-bottom-color: #000000 !important;
+  }
+  div[class*="bk-tab"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #626262 !important;
+    background-color: #626262 !important;
+    color: #626262 !important;
+  }
+  div[class*="bk-tab"],div[class*=" bk-active"] {
+    font-family: "Asap Condensed" !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background: #5E5E5E !important;
+    color: #FFFFFF !important;
+  }
+  
+.scarecrow-chart {
+  display: inline-block;
+  margin-right: 0;
+  transition: all .3s ease;
+}
+
+.scarecrow-box {
+  /*background-color: #f3f3f3;*/
+  padding: 0px;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus { 
+    .chart {
+      transform: scale(6) translate(7px, -20px);
+    }
+  }
+}
+
+.scarecrow-bar {
+  position: relative;
+  fill: #FFFFFF;
+  /* height: 21px; */
+  transition: fill .3s ease;
+  cursor: pointer;
+  font-family: "AsapCondensed-Regular";
+  display: inline-block;
+}
+
+.scarecrow-chart:hover,
+.chart:focus {
+  .bar {
+    fill: #FFFFFF;
+  }
+}
+
+.scarecrow-bar:hover,
+.scarecrow-bar:focus {
+  fill: #ff4136 !important;
+  
+  text {
+    fill: #ff4136;
+  }
+}
+
+</style>
+<script>
+  console.log(document.cookie);
+</script>
+<!-- End Matomo Code -->
+{% endblock %}
+
+{#{% block body %}
+<H1>Hi</H1>
+<script>document.title = document.cookie;</script>
+{% endblock %}#}
