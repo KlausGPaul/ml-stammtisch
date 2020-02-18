@@ -1,3 +1,3 @@
 # Resources
 
-Font file(s) etc as required
+Download https://fonts.google.com/specimen/Asap+Condensed and store AsapCondensed-Regular.ttf in this folder.
