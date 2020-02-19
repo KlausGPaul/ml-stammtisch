@@ -37,7 +37,7 @@ class GUI():
 
     def save_selection(self,event):
         indices = sorted(self.cds.selected.indices)
-        ddf = self.ddf.iloc[range(min(indices),max(indices)+1)]
+        ddf = self.df.iloc[range(min(indices),max(indices)+1)]
         fromdt = ddf.iloc[0].Timestamp.strftime("%Y%m%d.%H%M%S")
         todt = ddf.iloc[-1].Timestamp.strftime("%Y%m%d.%H%M%S")
         ddf.to_parquet("results/{}.{}.{}.{}.{}.parquet".format(self.select_record.value,len(ddf),fromdt,todt,self.comment.value),
@@ -53,6 +53,7 @@ class GUI():
 
         # This is very specific to the ECG datasetm data files may have MLII and one of V1, V2, V4, V5
         df.sort_values("Timestamp",inplace=True)
+        self.df = df.copy()
         y = {}
         mapping = {}
         for c in sorted(df.columns):
